@@ -14,3 +14,12 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 		return
 	}
 }
+
+var tc = make(map[string]*template.Template)
+
+func RenderTemplateTest(w http.ResponseWriter, t string) {
+	var tmpl *template.Template
+	var err error
+
+	// check to see if we already have the template in our cache
+}
