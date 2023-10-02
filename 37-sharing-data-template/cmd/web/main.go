@@ -18,7 +18,7 @@ const portNumber = ":8080"
 func main() {
 	var app config.AppConfig
 
-	tc, err := render.CreateTemplateCache() // страно, получается каждый запрос будет генерировать этот кеш ? посмотрим что будет дальше
+	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
 	}
