@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/dsoprea/go-exif/v3/common"
 )
 
 func main() {
