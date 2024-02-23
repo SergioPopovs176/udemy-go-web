@@ -1,7 +1,8 @@
-package main
+package handlers
 
 import (
 	"net/http"
+	"sergio-web-app/pkg/render"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
@@ -11,7 +12,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	// }
 	// fmt.Println(fmt.Sprintf("Bytes written: %d", n))
 
-	renderTemplate(w, "home.page.tmpl")
+	render.RenderTemplate(w, "home.page.tmpl")
 }
 
 func About(w http.ResponseWriter, r *http.Request) {
@@ -23,7 +24,7 @@ func About(w http.ResponseWriter, r *http.Request) {
 	// }
 	// fmt.Println(fmt.Sprintf("Bytes written: %d", n))
 
-	renderTemplate(w, "about.page.tmpl")
+	render.RenderTemplate(w, "about.page.tmpl")
 }
 
 func Links(w http.ResponseWriter, r *http.Request) {
@@ -32,5 +33,5 @@ func Links(w http.ResponseWriter, r *http.Request) {
 	// 	fmt.Println(err)
 	// }
 	// fmt.Println(fmt.Sprintf("Bytes written: %d", n))
-	renderTemplate(w, "links.page.tmpl")
+	render.RenderTemplate(w, "links.page.tmpl")
 }
