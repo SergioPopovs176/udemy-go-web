@@ -34,7 +34,7 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	remoteIP := r.RemoteAddr
 	fmt.Println(remoteIP)
 	fmt.Println(r.Context())
-	// m.App.Session.Put(r.Context(), "remote_ip", remoteIP)
+	m.App.Session.Put(r.Context(), "remote_ip", remoteIP)
 
 	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
