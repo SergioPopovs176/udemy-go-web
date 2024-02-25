@@ -9,7 +9,7 @@ import (
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	fmt.Println("Try render template", tmpl)
 
-	parsedTemplate, err := template.ParseFiles("./templates/" + tmpl)
+	parsedTemplate, err := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	// fmt.Println(parsedTemplate)
 	if err != nil {
 		fmt.Println("error parsing template:", err)
