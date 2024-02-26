@@ -24,7 +24,5 @@ func NoSurf(next http.Handler) http.Handler {
 		SameSite: http.SameSiteLaxMode,
 	})
 
-	fmt.Println(csrfHandler)
-
 	return csrfHandler
 }

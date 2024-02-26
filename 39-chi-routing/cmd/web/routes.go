@@ -2,9 +2,9 @@ package main
 
 import (
 	"net/http"
+	"sergio-web-app/pkg/config"
+	"sergio-web-app/pkg/handlers"
 
-	"github.com/SergioPopovs176/udemy-go-web/pkg/config"
-	"github.com/SergioPopovs176/udemy-go-web/pkg/handlers"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )
@@ -17,6 +17,7 @@ func routes(app *config.AppConfig) http.Handler {
 
 	mux.Get("/", handlers.Repo.Home)
 	mux.Get("/about", handlers.Repo.About)
+	mux.Get("/links", handlers.Repo.Links)
 
 	return mux
 }

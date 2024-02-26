@@ -1,8 +1,7 @@
-module github.com/SergioPopovs176/udemy-go-web
+module sergio-web-app
 
-go 1.19
+go 1.21.6
 
-require (
-	github.com/go-chi/chi v1.5.5 // indirect
-	github.com/justinas/nosurf v1.1.1 // indirect
-)
+require github.com/go-chi/chi v1.5.5
+
+require github.com/justinas/nosurf v1.1.1 // indirect

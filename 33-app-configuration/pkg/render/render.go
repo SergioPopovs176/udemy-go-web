@@ -12,8 +12,8 @@ import (
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	fmt.Println("Try render template", tmpl)
 
-	// create a template cache
-	templateCache, err := createTemplateCahce()
+	// get the templae cache from the app config
+	templateCache, err := CreateTemplateCahce()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,19 +26,15 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
 	buf := new(bytes.Buffer)
 
-	err = t.Execute(buf, nil)
-	if err != nil {
-		fmt.Println("error executing template:", err)
-	}
+	_ = t.Execute(buf, nil)
 
-	// render the tamlate
 	_, err = buf.WriteTo(w)
 	if err != nil {
-		fmt.Println("error executing template:", err)
+		fmt.Println("Error writing template to browser :", err)
 	}
 }
 
-func createTemplateCahce() (map[string]*template.Template, error) {
+func CreateTemplateCahce() (map[string]*template.Template, error) {
 	// myTemplateCache := make(map[string]*template.Template)
 	// или так . Это одно и то же
 	myTemplateCache := map[string]*template.Template{}

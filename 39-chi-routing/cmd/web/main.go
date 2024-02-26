@@ -4,21 +4,23 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-
-	"github.com/SergioPopovs176/udemy-go-web/pkg/config"
-	"github.com/SergioPopovs176/udemy-go-web/pkg/handlers"
-	"github.com/SergioPopovs176/udemy-go-web/pkg/render"
+	"sergio-web-app/pkg/config"
+	"sergio-web-app/pkg/handlers"
+	"sergio-web-app/pkg/render"
 )
 
 const portNumber = ":8080"
 
-// main is the main function
 func main() {
+	// run  go run cmd/web/*.go
+	//      go run ./cmd/web
+	// ctrl+C to stop programm
+
 	var app config.AppConfig
 
-	tc, err := render.CreateTemplateCache()
+	tc, err := render.CreateTemplateCahce()
 	if err != nil {
-		log.Fatal("cannot create template cache")
+		log.Fatal(("cannot create template cache"))
 	}
 
 	app.TemplateCache = tc
@@ -29,7 +31,12 @@ func main() {
 
 	render.NewTemplates(&app)
 
-	fmt.Println(fmt.Sprintf("Staring application on port %s", portNumber))
+	// http.HandleFunc("/", handlers.Repo.Home)
+	// http.HandleFunc("/about", handlers.Repo.About)
+	// http.HandleFunc("/links", handlers.Repo.Links)
+
+	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
+	// _ = http.ListenAndServe(portNumber, nil)
 
 	srv := &http.Server{
 		Addr:    portNumber,
@@ -37,7 +44,5 @@ func main() {
 	}
 
 	err = srv.ListenAndServe()
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Fatal(err)
 }
