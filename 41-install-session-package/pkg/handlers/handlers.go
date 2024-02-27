@@ -31,7 +31,6 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	stringMap["test"] = "Hello, again."
 
 	// send the data to the template
-
 	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{StringMap: stringMap})
 }
 
